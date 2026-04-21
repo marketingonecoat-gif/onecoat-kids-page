@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400..700;1,400..700&family=Manrope:wght@300..800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Noto Serif", serif;
+  --font-sans: "Manrope", sans-serif;
+  
+  --color-primary: #50604a;
+  --color-primary-container: #697962;
+  --color-on-primary: #ffffff;
+  
+  --color-secondary: #715b34;
+  --color-secondary-container: #fcdfad;
+  --color-on-secondary-container: #77613a;
+  
+  --color-tertiary: #7b542b;
+  --color-tertiary-container: #966c41;
+  
+  --color-surface: #fcf9f4;
+  --color-surface-container-low: #f6f3ee;
+  --color-surface-container: #f0ede9;
+  --color-surface-container-high: #ebe8e3;
+  --color-surface-container-highest: #e5e2dd;
+  --color-surface-container-lowest: #ffffff;
+  
+  --color-on-surface: #1c1c19;
+  --color-on-surface-variant: #444841;
+  
+  --color-outline-variant: #c4c8be;
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+
+  --radius-lg: 2rem;
+  --radius-xl: 3rem;
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-on-surface font-sans antialiased;
+    position: relative;
+  }
+
+  /* Subtle Paper Texture Overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .gradient-btn {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-container) 100%);
+    @apply text-on-primary transition-all duration-300;
+  }
+  
+  .ambient-shadow {
+    box-shadow: 0 20px 40px rgba(28, 28, 25, 0.05);
+  }
+}
+
